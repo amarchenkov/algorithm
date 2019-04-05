@@ -25,7 +25,9 @@ public class PuzyrSort {
                 }
             }
         }
+        System.out.println(k);
 
+        k = 0;
         for (int o = 10 - 1; o > 1; o--) {
             for (int j = 0; j < o; j++) {
                 k++;
@@ -36,6 +38,7 @@ public class PuzyrSort {
                 }
             }
         }
+        System.out.println(k);
 
         System.out.println("Bye");
     }
