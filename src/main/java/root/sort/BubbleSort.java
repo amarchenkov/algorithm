@@ -11,9 +11,11 @@ import java.util.Arrays;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 9, 12, 55, 3, 5, 777, 12, 532, 231, 23, 65, 856, 345};
-        for (int i = 0; i < arr.length - 2; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
+        int[] arr = new int[]{4, 6, 12, 6, 8, 3, 7, 9, 213, 5};
+        System.out.println(arr.length);
+
+        for (int i = 0; i < arr.length - 1; i++) { //Количество проходов по массиву
+            for (int j = 0; j < arr.length - 1 - i; j++) { //Проход по неотсортированным элементам
                 if (arr[j] > arr[j + 1]) {
                     int tmp = arr[j];
                     arr[j] = arr[j + 1];
@@ -21,6 +23,8 @@ public class BubbleSort {
                 }
             }
         }
+
         System.out.println(Arrays.toString(arr));
     }
+
 }

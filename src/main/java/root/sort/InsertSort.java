@@ -19,16 +19,18 @@ import java.util.Arrays;
  */
 public class InsertSort {
     public static void main(String[] args) {
-        int[] a = {2, 6, 9, 1, 64764, 23, 7, 12, 23, 57686, 0, 234};
+        int[] a = {2, 6, 9, 1, 64764, 23, 7, 12, 23, 57686, 0, 234, 32, 6, 68, 43, 2};
+
         for (int i = 1; i < a.length; i++) {
-            int tmp = a[i];
-            int j = i;
+            int tmp = a[i]; //Передвигаемы элемент
+            int j = i; //Начальный индекс для движения в обратную сторону
             while (j > 0 && a[j - 1] > tmp) {
                 a[j] = a[j - 1];
-                --j;
+                j--;
             }
             a[j] = tmp;
         }
+
         System.out.println(Arrays.toString(a));
     }
 
