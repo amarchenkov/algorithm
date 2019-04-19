@@ -23,7 +23,7 @@ public class BubbleSort {
                 }
             }
         }
-
+        int c = 0;
         System.out.println(Arrays.toString(arr));
     }
 
