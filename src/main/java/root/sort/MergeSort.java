@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
     public static void main(String[] args) {
-        int[] a = {3, 5, 4, 2, 1};
+        int[] a = {1, 1314, 3, 45, 6, 6, 43, 2, 23, 5, 6, 78, 65, 4, 2, 12, 3, 4, 6, 8, 5, 2, 23};
         System.out.println("length = " + a.length);
 
         // 0..26
@@ -21,7 +21,6 @@ public class MergeSort {
     private static void mergeSort(int[] a, int start, int finish) {
         System.out.println("Process range " + start + ".." + finish);
         if (finish <= start) {
-            System.out.println("Finish recursion");
             return;
         }
         int middle = (start + finish) / 2;

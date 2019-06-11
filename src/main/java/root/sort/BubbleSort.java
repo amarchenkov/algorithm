@@ -14,7 +14,7 @@ public class BubbleSort {
         int[] arr = new int[]{4, 6, 12, 6, 8, 3, 7, 9, 213, 5};
         System.out.println(arr.length);
 
-        for (int i = 0; i < arr.length - 1; i++) { //Количество проходов по массиву
+        for (int i = 1; i < arr.length - 1; i++) { //Количество проходов по массиву
             for (int j = 0; j < arr.length - 1 - i; j++) { //Проход по неотсортированным элементам
                 if (arr[j] > arr[j + 1]) {
                     int tmp = arr[j];

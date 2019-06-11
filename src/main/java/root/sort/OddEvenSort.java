@@ -12,7 +12,7 @@ public class OddEvenSort {
     public static void main(String[] args) {
         int[] a = {2, 4, 5, 6, 3, 4, 24, 576, 6, 5, 5, 4, 2, 345, 458, 6, 6, 534, 4, 234, 234};
         for (int i = 0; i < a.length; i++) {
-            for (int j = (i % 2); j < a.length - 1; j = j + 2) {
+            for (int j = (i % 2) == 1 ? 0 : 1; j < a.length - 1; j = j + 2) {
                 if (a[j] > a[j + 1]) {
                     int tmp = a[j];
                     a[j] = a[j + 1];
