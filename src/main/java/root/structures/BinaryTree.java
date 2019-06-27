@@ -1,6 +1,7 @@
 package root.structures;
 
-import java.util.Random;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created at 20.02.2019 15:49
@@ -10,15 +11,66 @@ import java.util.Random;
  */
 public class BinaryTree<T extends Comparable<T>> {
     private Node<T> root;
+    private final Queue<Node<T>> q = new LinkedList<>();
 
-    public void insert(T data) {
+    private void depth() {
         if (root == null) {
-            root = new Node<>(data);
+            return;
+        }
+        depth(root);
+    }
+
+    private void depth(Node<T> node) {
+        if (node.getLeft() != null) {
+            depth(node.getLeft());
+        }
+        node.visitNode();
+        if (node.getRight() != null) {
+            depth(node.getRight());
+        }
+    }
+
+    private void breadth() {
+        if (root == null) {
+            return;
+        }
+        q.offer(root);
+        while (!q.isEmpty()) {
+            Node<T> poll = q.poll();
+            poll.visitNode();
+            if (poll.getLeft() != null) {
+                q.offer(poll.getLeft());
+            }
+            if (poll.getRight() != null) {
+                q.offer(poll.getRight());
+            }
+        }
+
+    }
+
+    private void insert(T data) {
+        Node<T> newNode = new Node<>(data);
+        if (root == null) {
+            this.root = newNode;
             return;
         }
         Node<T> current = root;
-        while (current != null) {
-
+        Node<T> parent;
+        while (true) {
+            parent = current;
+            if (newNode.getData().compareTo(current.getData()) < 0) {
+                current = current.getLeft();
+                if (current == null) {
+                    parent.setLeft(newNode);
+                    return;
+                }
+            } else {
+                current = current.getRight();
+                if (current == null) {
+                    parent.setRight(newNode);
+                    return;
+                }
+            }
         }
     }
 
@@ -45,8 +97,19 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     public static void main(String[] args) {
-        String a = new Random().nextInt(100) + "b";
-        System.out.println(a);
+        BinaryTree<Integer> tree = new BinaryTree<>();
+        tree.insert(235);
+        tree.insert(3);
+        tree.insert(8);
+        tree.insert(2);
+        tree.insert(32);
+        tree.insert(5);
+        tree.insert(775);
+        tree.insert(23);
+        tree.insert(365);
+        tree.depth();
+        System.out.println("-----------------");
+        tree.breadth();
     }
 
 }
@@ -56,17 +119,15 @@ class Node<T> {
     private Node<T> left;
     private Node<T> right;
 
-    public Node() {
-    }
-
-    public Node(T data) {
+    Node(T data) {
         this.data = data;
     }
 
-    public void visitNode() {}
+    public void visitNode() {
+        System.out.println("Node visited {" + data + "}");
+    }
 
-
-    public T getData() {
+    T getData() {
         return data;
     }
 
@@ -74,7 +135,7 @@ class Node<T> {
         this.data = data;
     }
 
-    public Node<T> getLeft() {
+    Node<T> getLeft() {
         return left;
     }
 
@@ -82,7 +143,7 @@ class Node<T> {
         this.left = left;
     }
 
-    public Node<T> getRight() {
+    Node<T> getRight() {
         return right;
     }
 
