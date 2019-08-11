@@ -43,17 +43,17 @@ public class MergeSortImplementation {
     private static void merge(int[] arr, int start, int middle, int finish) {
         int leftLength = middle - start + 1;
         int rightLength = finish - middle;
-
         int[] leftArray = new int[leftLength];
         int[] rightArray = new int[rightLength];
-
-        System.arraycopy(arr, start, leftArray, 0, leftLength);
-        System.arraycopy(arr, middle + 1, rightArray, 0, rightLength);
-
+        for (int i = 0; i < leftLength; i++) {
+            leftArray[i] = arr[start + i];
+        }
+        for (int i = 0; i < rightLength; i++) {
+            rightArray[i] = arr[middle + 1 + i];
+        }
         int leftPosition = 0;
         int rightPosition = 0;
-
-        for (int i = start; i < finish + 1; i++) {
+        for (int i = start; i <= finish; i++) {
             if (leftPosition < leftLength && rightPosition < rightLength) {
                 if (leftArray[leftPosition] < rightArray[rightPosition]) {
                     arr[i] = leftArray[leftPosition];
@@ -70,6 +70,7 @@ public class MergeSortImplementation {
                 rightPosition++;
             }
         }
-
     }
+
+
 }
