@@ -8,69 +8,68 @@ package root.structures;
  */
 public class DynamicArray {
 
-    private int[] buffer;
-    private int realSize;
+	private int[] buffer;
 
-    private DynamicArray() {
-        this.buffer = new int[4];
-    }
+	private int realSize;
 
-    public boolean isEmpty() {
-        return realSize == 0;
-    }
+	private DynamicArray() {
+		this.buffer = new int[4];
+	}
 
-    public int size() {
-        return realSize;
-    }
+	public boolean isEmpty() {
+		return realSize == 0;
+	}
 
-    private void add(int value) {
-        if (realSize == buffer.length) {
-            int[] tmp = buffer;
-            double factor = 1.5;
-            buffer = new int[(int) (realSize * factor)];
-            for (int i = 0; i < realSize; i++) {
-                buffer[i] = tmp[i];
-            }
-        }
-        buffer[realSize] = value;
-        realSize++;
-    }
+	public int size() {
+		return realSize;
+	}
 
-    public void delete(int index) {
-        if (index < 0 || index >= realSize) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        if (index == (realSize - 1)) {
-            buffer[index] = 0;
-        } else {
-            for (int i = (index + 1); i < realSize; i++) {
-                buffer[i - 1] = buffer[i];
-            }
-        }
-        realSize--;
-    }
+	private void add(int value) {
+		if (realSize == buffer.length) {
+			int[] tmp = buffer;
+			double factor = 1.5;
+			buffer = new int[(int) (realSize * factor)];
+			System.arraycopy(tmp, 0, buffer, 0, realSize);
+		}
+		buffer[realSize] = value;
+		realSize++;
+	}
 
-    public int get(int index) {
-        if ((index >= realSize) || (index > (buffer.length - 1))) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        return buffer[index];
-    }
+	public void delete(int index) {
+		if (index < 0 || index >= realSize) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		if (index == (realSize - 1)) {
+			buffer[index] = 0;
+		} else {
+			for (int i = (index + 1); i < realSize; i++) {
+				buffer[i - 1] = buffer[i];
+			}
+		}
+		realSize--;
+	}
 
-    public void update(int index, int newValue) {
-        if ((index > realSize) || (index > (buffer.length - 1))) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        buffer[index] = newValue;
-    }
+	public int get(int index) {
+		if ((index >= realSize) || (index > (buffer.length - 1))) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		return buffer[index];
+	}
 
-    public static void main(String[] args) {
-        final DynamicArray dynamicArray = new DynamicArray();
-        dynamicArray.add(1);
-        dynamicArray.add(2);
-        dynamicArray.add(3);
-        dynamicArray.add(4);
-        dynamicArray.add(5);
-        System.out.println("Bye");
-    }
+	public void update(int index, int newValue) {
+		if ((index > realSize) || (index > (buffer.length - 1))) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		buffer[index] = newValue;
+	}
+
+	public static void main(String[] args) {
+		final DynamicArray dynamicArray = new DynamicArray();
+		dynamicArray.add(1);
+		dynamicArray.add(2);
+		dynamicArray.add(3);
+		dynamicArray.add(4);
+		dynamicArray.add(5);
+		System.out.println("Bye");
+	}
 }
