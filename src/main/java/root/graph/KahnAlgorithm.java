@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
+ * Topological sort
  * 1) Add all nodes with in-degree 0 to a queue.
  * 2) While the queue is not empty:
  * 2.1) Remove a node from the queue.
@@ -14,8 +15,8 @@ import java.util.Queue;
  * 4) The nodes in the queue represent the topological ordering of the graph.
  */
 public class KahnAlgorithm {
-	public static int[] runKahn(int vertices, List<List<Integer>> adj) {
 
+	public static int[] runKahn(int vertices, List<List<Integer>> adj) {
 		// 1
 		int[] inDegree = new int[vertices];
 		for (int i = 0; i < vertices; i++) {
@@ -60,4 +61,5 @@ public class KahnAlgorithm {
 		// 4
 		return result;
 	}
+
 }

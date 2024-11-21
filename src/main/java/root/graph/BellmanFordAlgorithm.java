@@ -3,6 +3,8 @@ package root.graph;
 import java.util.Arrays;
 
 /**
+ * Shortest path algorithm
+ * <a href="https://habr.com/ru/companies/otus/articles/484382/">Bellman-Ford</a>
  * 1) Initialization - Initialize distances from the source vertex to all other vertices as infinity, except the source vertex itself set to 0.
  * 2) Edge relaxation -Iterate V-1 times, where V is the number of vertices, and relax all edges by updating distances if shorter paths are found.
  * 3) Negative weight cycle detection - Perform an additional iteration to detect negative weight cycles, if any

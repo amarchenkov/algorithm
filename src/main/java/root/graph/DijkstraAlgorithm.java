@@ -3,12 +3,13 @@ package root.graph;
 import java.util.*;
 
 /**
+ * Shortest path algorithm
  * 0) Build graph data structure
  * 1) Create a visited boolean array of size = no.of vertices, where each index of the array points to each vertex.
  * 2) Initially, all values in the array are false, depicting no vertex has been visited
  * 3) Then we make a priority queue PrQue, storing objects of type Pair. A pair consisting of 2 data members: vertex and weight to reach that vertex(w).
  * 4) Initially we insert a Pair(sourceVertex, 0) in the priority Queue.
- * 5) Now till PrioQue is not empty
+ * 5) Now till PriorityQue is not empty
  * 5.1) Remove the topmost element from the priority queue
  * 5.2) Mark the topmost element as visited
  * 5.3) Now add all the neighbors of topEle to the priority queue only and only if they have not been visited before

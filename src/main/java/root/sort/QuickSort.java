@@ -3,10 +3,6 @@ package root.sort;
 import java.util.Arrays;
 
 /**
- * Created at 16.04.2019 17:28
- *
- * @author AMarchenkov
- * @since 16.04.2019
  */
 public class QuickSort {
     public static void main(String[] args) {

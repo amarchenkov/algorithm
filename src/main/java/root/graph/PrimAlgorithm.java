@@ -1,7 +1,7 @@
 package root.graph;
 
 /**
- * @author Andrei Marchenkov (email: andrei.marchenkov@threatrix.io, github: amarchenkov)
+ * Minimum spanning tree algorithm
  */
 public class PrimAlgorithm {
 }

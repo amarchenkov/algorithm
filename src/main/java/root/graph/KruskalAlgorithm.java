@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
+ *  Minimum spanning tree algorithm
  * 1. Ascending sort all edges by their weight
  * 2. Add edges in that order int MST. Skip the edges that produce cycles in MST
  * 3. Repeat step 2 until N - 1 (N - count of vertex) edges are added
