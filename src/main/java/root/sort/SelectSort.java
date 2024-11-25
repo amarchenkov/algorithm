@@ -16,16 +16,14 @@ public class SelectSort {
 
 	public static <T extends Comparable<T>> void sort(T[] input) {
 		for (int i = 0; i < input.length - 1; i++) {
-			T min = input[i];
 			int minIndex = i;
 			for (int j = i + 1; j < input.length; j++) {
-				if (input[j].compareTo(min) < 0) {
-					min = input[j];
+				if (input[j].compareTo(input[minIndex]) < 0) {
 					minIndex = j;
 				}
 			}
 			T tmp = input[i];
-			input[i] = min;
+			input[i] = input[minIndex];
 			input[minIndex] = tmp;
 		}
 	}
