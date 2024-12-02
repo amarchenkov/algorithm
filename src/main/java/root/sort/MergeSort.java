@@ -2,13 +2,8 @@ package root.sort;
 
 import java.util.Arrays;
 
-/**
- * Created at 19.04.2019 12:21
- *
- * @author AMarchenkov
- * @since 19.04.2019
- */
 public class MergeSort {
+
 	public static void main(String[] args) {
 		int[] a = {1, 1314, 3, 45, 6, 6, 43, 2, 23, 5, 6, 78, 65, 4, 2, 12, 3, 4, 6, 8, 5, 2, 23};
 		System.out.println("length = " + a.length);
@@ -36,9 +31,7 @@ public class MergeSort {
 		int[] leftArray = new int[leftLength];
 		int[] rightArray = new int[rightLength];
 
-		for (int i = 0; i < leftLength; i++) {
-			leftArray[i] = a[start + i];
-		}
+		System.arraycopy(a, start, leftArray, 0, leftLength);
 		for (int i = 0; i < rightLength; i++) {
 			rightArray[i] = a[middle + i + 1];
 		}
@@ -62,7 +55,6 @@ public class MergeSort {
 				a[i] = rightArray[rightIndex];
 				rightIndex++;
 			}
-
 		}
 
 

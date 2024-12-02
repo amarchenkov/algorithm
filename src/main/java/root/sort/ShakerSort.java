@@ -1,11 +1,5 @@
 package root.sort;
 
-/**
- * Created at 15.04.2019 12:03
- *
- * @author AMarchenkov
- * @since 15.04.2019
- */
 public class ShakerSort {
 
     public static void sort(int[] unsortedArray) {
